@@ -1,0 +1,19 @@
+# 1. Number of replicas
+replicaCount: 1
+
+# 2. Docker Image from Docker Hub
+image:
+  repository: sankasrikar/harnessbackend
+  tag: "v1"
+  pullPolicy: IfNotPresent
+
+# 3. Application configurations (ConfigMap)
+config:
+  springProfile: dev
+  serverPort: "8080"
+  corsAllowedOrigins: "*"
+
+# 4. Sensitive secrets (Secret)
+secrets:
+  mongodbUri: "mongodb://mongo:27017/taskmanager_dev"
+  jwtSecret: "dnbTaskManagementSecureJwtSecretKeyMustBeAtLeast256BitsLongForHmacSha256SecurityRequirement"
